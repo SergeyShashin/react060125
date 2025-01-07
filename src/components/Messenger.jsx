@@ -9,7 +9,6 @@ export class Messenger extends Component {
   }
 
   handlBtnClick = (e) => {
-    // this.setState({ counter: this.state.counter + Number(e.target.dataset.value) });
     this.setState(prevState => ({ counter: prevState.counter + Number(e.target.dataset.value) }));
   }
 
