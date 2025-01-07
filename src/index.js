@@ -9,6 +9,8 @@
 import React from "react";
 import { createRoot } from 'react-dom/client';
 
+import { Messenger } from "./components/Messenger";
+
 // const element = React.createElement(
 //   'h1',
 //   { className: 'react-privet' },
@@ -16,13 +18,14 @@ import { createRoot } from 'react-dom/client';
 // );
 
 // const element = <h1 className="react-privet">Привет! JSX тоже работает!</h1>;
-const messages = ['Привет, друг!', 'Как дела?'];
+// const messages = ['Привет, друг!', 'Как дела?'];
 
-const Message = props => <p>{props.text}</p>;
-const MessageList = props => props.messages.map(messsage => <Message text={messsage} />);
+// const Message = props => <p>{props.text}</p>;
+// const MessageList = props => props.messages.map(messsage => <Message text={messsage} />);
 
 const root = createRoot(document.getElementById('root'));
 
 root.render(
-  <MessageList messages={messages} />
+  // <MessageList messages={messages} />
+  <Messenger />
 );
