@@ -22,8 +22,18 @@ export class Messenger extends Component {
     this.setState({
       messages: this.state.messages.concat(message)
     });
-    
-    setTimeout(() => this.state.messages.push({ author: 'автоответчик', text: 'Сообщение получено.)' }), 1000);
+
+  }
+
+  componentDidUpdate() {
+    let {author}=this.state.messages[this.state.messages.length - 1];
+    if (author !== 'автоответчик') {
+      setTimeout(() =>
+        this.setState({
+          messages: this.state.messages.concat({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` })
+        }),
+        500);
+    }
   }
 
   render() {

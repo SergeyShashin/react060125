@@ -9,28 +9,26 @@ export class MessageForm extends Component {
     }
   }
 
-  handleBtnSend = () => {
-    let author = document.getElementById('author').value;
-    let textEl = document.getElementById('text');
-    let text = textEl.value;
+  handleInputChangeValue = (e) => {
+    let fieldName = e.target.name;
 
     this.setState({
-      author: author,
-      text: text,
+      [`${fieldName}`]: e.target.value,
     });
+  }
 
-    if (this.state.author && this.state.text) {
-      this.props.functionNewMessage({ author: this.state.author, text: this.state.text });
-    }
+  handleBtnSend = () => {
+    this.props.functionNewMessage(this.state);
 
-    textEl.value = '';
+    this.setState({ text: '' });
+    document.getElementById('text').value = '';
   }
 
   render() {
     return (
       <section>
-        <input id='author' />
-        <input id='text' />
+        <input id='author' name="author" onChange={this.handleInputChangeValue} />
+        <input id='text' name="text" onChange={this.handleInputChangeValue} />
         <button onClick={this.handleBtnSend}>Отправить</button>
       </section>
     )
