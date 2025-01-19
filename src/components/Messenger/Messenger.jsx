@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { Counter } from './Counter';
-import { MessagesList } from "./MessagesList";
-import { MessageForm } from "./MessageForm";
+import { MessagesList } from "components/MessagesList";
+import { MessageForm } from "components/MessageForm";
 
 const messages = [{ author: 'друг', text: 'Привет друг!' }, { author: 'друг', text: 'Как дела?' }, { author: 'друг', text: 'Как погода?' }];
 
