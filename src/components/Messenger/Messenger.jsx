@@ -1,3 +1,5 @@
+import './Messenger.css';
+
 import React, { Component } from "react";
 // import { Counter } from './Counter';
 import { MessagesList } from "components/MessagesList";
@@ -38,7 +40,7 @@ export class Messenger extends Component {
 
   render() {
     return (
-      <section>
+      <section className='messenger'>
         {/* {this.state.isVisible && <Counter />} */}
         {/* <button onClick={this.handleToggle}>Toggle</button> */}
         <MessageForm functionNewMessage={this.newMessage} />

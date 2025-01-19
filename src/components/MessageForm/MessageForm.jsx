@@ -15,6 +15,7 @@ export class MessageForm extends Component {
     this.setState({
       [`${fieldName}`]: e.target.value,
     });
+
   }
 
   handleBtnSend = () => {
@@ -24,11 +25,17 @@ export class MessageForm extends Component {
     document.getElementById('text').value = '';
   }
 
+  handleInputKeyDown = e => {
+    if (e.ctrlKey && e.key === 'Enter') {
+      this.handleBtnSend();
+    };
+  }
+
   render() {
     return (
       <section>
         <input id='author' name="author" onChange={this.handleInputChangeValue} />
-        <input id='text' name="text" onChange={this.handleInputChangeValue} />
+        <input id='text' name="text" onChange={this.handleInputChangeValue} onKeyDown={this.handleInputKeyDown} />
         <button onClick={this.handleBtnSend}>Отправить</button>
       </section>
     )

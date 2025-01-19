@@ -1,4 +1,20 @@
 .message {
-  color: crimson;
-  width: percentage($number: 1/10);
+  background: lightskyblue;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 20px;
+  margin: 5px;
+
+  &-owner {
+    align-self: end;
+  }
+
+  &-companion {
+    align-self: start;
+  }
+
+}
+
+.sender {
+  color: gray;
 }
