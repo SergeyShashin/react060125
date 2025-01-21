@@ -4,4 +4,8 @@
 }
 
 .messenger {
+  background-color: beige;
+  height: 98vh;
+  padding: 20px;
+  /* overflow-y: scroll; */
 }

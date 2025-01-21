@@ -5,6 +5,7 @@
 // let l = new User('Luck', 'Skywalker');
 
 // console.log(l.sayHi());
+import 'assets/global.css';
 
 import React from "react";
 import { createRoot } from 'react-dom/client';

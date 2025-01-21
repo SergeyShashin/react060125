@@ -43,8 +43,8 @@ export class Messenger extends Component {
       <section className='messenger'>
         {/* {this.state.isVisible && <Counter />} */}
         {/* <button onClick={this.handleToggle}>Toggle</button> */}
-        <MessageForm functionNewMessage={this.newMessage} />
         <MessagesList messages={this.state.messages} />
+        <MessageForm functionNewMessage={this.newMessage} />
       </section>
     )
   }

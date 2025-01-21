@@ -1,4 +1,8 @@
+import './MessageForm.css';
+
 import React, { Component } from "react";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 export class MessageForm extends Component {
   constructor(props) {
@@ -21,7 +25,8 @@ export class MessageForm extends Component {
   handleBtnSend = () => {
     this.props.functionNewMessage(this.state);
 
-    this.setState({ text: '' });
+    this.setState({ author: '', text: '' });
+    document.getElementById('author').value = '';
     document.getElementById('text').value = '';
   }
 
@@ -33,10 +38,11 @@ export class MessageForm extends Component {
 
   render() {
     return (
-      <section>
-        <input id='author' name="author" onChange={this.handleInputChangeValue} />
-        <input id='text' name="text" onChange={this.handleInputChangeValue} onKeyDown={this.handleInputKeyDown} />
-        <button onClick={this.handleBtnSend}>Отправить</button>
+      <section className='message-form'>
+        {/* <input id='author' name="author" onChange={this.handleInputChangeValue} /> */}
+        <TextField id='author' label='author' name="author" onChange={this.handleInputChangeValue}  variant='standard'/>
+        <TextField id='text' label='напишите что-нибудь...' name='text' onChange={this.handleInputChangeValue} onKeyDown={this.handleInputKeyDown} variant='standard'/>
+        <Button onClick={this.handleBtnSend} variant='contained' size='large'>Отправить</Button>
       </section>
     )
   }
