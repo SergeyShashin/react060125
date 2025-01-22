@@ -1,9 +1,10 @@
 .message-form {
-  margin-top: 40px;
+  margin-top: 20px;
+  padding: 20px;
 }
 
-.message-form input, .message-form button{
-  /* padding: 10px; */
+.message-form input,
+.message-form button {
   background: none;
   border: none;
 }
@@ -13,14 +14,13 @@
 }
 
 .message-form input {
-  border-bottom: 1px solid lightseagreen;
   outline: none;
 }
 
-.message-form button{
+.message-form button {
   color: crimson;
 }
 
-#text{
+#text {
   width: 300px;
 }

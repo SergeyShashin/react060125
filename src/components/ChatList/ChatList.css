@@ -1,0 +1,16 @@
+.chatList{
+  width: 300px;
+  padding: 10px;
+  overflow-y: scroll;
+  border-right: none ;
+}
+
+li{
+  margin: 5px;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+li:hover{
+  font-weight: bolder;
+}

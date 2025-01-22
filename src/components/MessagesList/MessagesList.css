@@ -1,7 +1,8 @@
 .messages-list {
+  width: 1500px;
   display: flex;
+  height: 75vh;
   flex-direction: column;
-  /* color: crimson; */
-  height: 85vh;
   overflow-y: scroll;
+  padding: 20px;
 }
