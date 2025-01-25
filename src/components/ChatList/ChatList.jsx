@@ -2,20 +2,38 @@ import './ChatList.css';
 
 import React, { Component } from "react";
 import { List } from '@mui/material';
-import { ListItem} from '@mui/material';
+import { ListItem } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 export class ChatList extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      chatName: ''
+    }
+  }
+
+  handlerClickChat = e => {
+    if (e.target.tagName === 'LI') {
+      let textContent = e.target.textContent;
+      this.setState({ chatName: textContent });
+      this.props.getChatName(e.target.textContent);
+    }
   }
 
   render() {
     return (
 
-      <List className='chatList'>
-        <ListItem>Chat1</ListItem>
-        <ListItem>Chat2</ListItem>
-        <ListItem>Chat3</ListItem>
+      <List className='chatList' onClick={this.handlerClickChat}>
+        <NavLink to='/chats/1'>
+          <ListItem>Chat1</ListItem>
+        </NavLink>
+        <NavLink to='/chats/2'>
+          <ListItem>Chat2</ListItem>
+        </NavLink>
+        <NavLink to='/chats/3'>
+          <ListItem>Chat3</ListItem>
+        </NavLink>
         <ListItem>Chat4</ListItem>
         <ListItem>Chat5</ListItem>
         <ListItem>Chat6</ListItem>

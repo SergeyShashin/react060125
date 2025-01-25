@@ -5,13 +5,13 @@
 // let l = new User('Luck', 'Skywalker');
 
 // console.log(l.sayHi());
-import 'assets/global.css';
 
 import React from "react";
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-
 import { Messenger } from "./components/Messenger";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import 'assets/global.css';
+// import { routesArr } from "./routesArr";
 
 // const element = React.createElement(
 //   'h1',
@@ -29,7 +29,11 @@ const root = createRoot(document.getElementById('root'));
 
 root.render(
   // <MessageList messages={messages} />
-  // <BrowserRouter>
-    <Messenger />
-  // </BrowserRouter>
+  <BrowserRouter>
+    <Routes>
+      <Route exact path="/" element={<Messenger />} />
+      <Route exact path="chats/:id" element={<Messenger/>} />
+      {/* <Messenger /> */}
+    </Routes>
+  </BrowserRouter>
 );
