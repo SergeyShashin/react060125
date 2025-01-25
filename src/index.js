@@ -9,6 +9,7 @@ import 'assets/global.css';
 
 import React from "react";
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
 import { Messenger } from "./components/Messenger";
 
@@ -28,5 +29,7 @@ const root = createRoot(document.getElementById('root'));
 
 root.render(
   // <MessageList messages={messages} />
-  <Messenger />
+  // <BrowserRouter>
+    <Messenger />
+  // </BrowserRouter>
 );
