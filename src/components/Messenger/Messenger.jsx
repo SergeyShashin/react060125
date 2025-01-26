@@ -12,7 +12,6 @@ import { MessageForm } from "components/MessageForm";
 export class Messenger extends Component {
   constructor(props) {
     super(props);
-    console.log(localStorage.getItem('stateMessenger'));
     this.state = {
       // isVisible: false
       currentChat: null,
@@ -61,6 +60,7 @@ export class Messenger extends Component {
     }
   }
 
+
   // handleToggle = () => {
   //   this.setState({ isVisible: !this.state.isVisible });
   // }
@@ -73,7 +73,6 @@ export class Messenger extends Component {
     this.setState({
       chats: Object.assign(this.state.chats, this.updateChat(message))
     });
-    localStorage.setItem('stateMessenger', JSON.stringify(this.state))
   };
 
   /**
@@ -84,8 +83,8 @@ export class Messenger extends Component {
   updateChat(message) {
     return {
       [this.state.currentChat]: {
-        id: this.state.currentChat.id,
-        name: this.state.currentChat,
+        id: this.state.chats[this.state.currentChat].id,
+        name: this.state.chats[this.state.currentChat].name,
         messages: this.state.chats[this.state.currentChat].messages.concat(message)
       }
     };
