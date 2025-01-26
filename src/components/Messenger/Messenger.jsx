@@ -14,8 +14,8 @@ export class Messenger extends Component {
     super(props);
     this.state = {
       // isVisible: false
-      messages: [],
-      currentChat: 'Chat1',
+      // messages: [],
+      currentChat: null,
       chats: {
         'Chat1': {
           id: 1,
@@ -23,14 +23,39 @@ export class Messenger extends Component {
           messages: [{ author: 'друг', text: `Привет!) Это чат 1. ` }]
         },
         'Chat2': {
-          id: 1,
+          id: 2,
           name: "Chat2",
           messages: [{ author: 'друг', text: `Привет!) Это чат 2. ` }]
         },
         'Chat3': {
-          id: 1,
+          id: 3,
           name: "Chat3",
           messages: [{ author: 'друг', text: `Привет!) Это чат 3. ` }]
+        },
+        'Chat4': {
+          id: 4,
+          name: "Chat4",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 4. ` }]
+        },
+        'Chat5': {
+          id: 5,
+          name: "Chat5",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 5. ` }]
+        },
+        'Chat6': {
+          id: 6,
+          name: "Chat6",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 6. ` }]
+        },
+        'Chat7': {
+          id: 7,
+          name: "Chat7",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 7. ` }]
+        },
+        'Chat8': {
+          id: 8,
+          name: "Chat8",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 8. ` }]
         },
       }
     }
@@ -55,22 +80,22 @@ export class Messenger extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.chats[this.state.currentChat].messages.length) {
-      let { author } = this.state.chats[this.state.currentChat].messages[this.state.messages.length - 1];
-      if (author !== 'автоответчик') {
-        setTimeout(() =>
-          this.setState({
-            messages: this.state.messages.concat({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` })
-          }),
-          500);
-      }
-    }
+
+    // if (this.state.chats[this.state.currentChat].messages.length>1) {
+    //   let { author } = this.state.chats[this.state.currentChat].messages[this.state.messages.length - 1];
+    //   if (author !== 'автоответчик') {
+    //     setTimeout(() =>
+    //       this.setState({
+    //         chats: this.state.chats[this.state.currentChat].messages.concat({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` })
+    //       }),
+    //       500);
+    //   }
+    // }
 
   }
 
-
-
   render() {
+
     return (
       <section className='messenger'>
         {/* {this.state.isVisible && <Counter />} */}
@@ -79,8 +104,8 @@ export class Messenger extends Component {
         <section className='layout'>
           <ChatList getChatName={this.handlerChatName} />
           <div className="inputOutput">
-            <MessagesList messages={this.state.chats[this.state.currentChat].messages} />
-            <MessageForm functionNewMessage={this.newMessage} />
+            {this.state.currentChat && this.state.chats[this.state.currentChat].messages ? <MessagesList messages={this.state.chats[this.state.currentChat].messages} /> : 'Можете выбрать чат для общения.'}
+            {this.state.currentChat && <MessageForm functionNewMessage={this.newMessage} />}
           </div>
         </section>
       </section>
