@@ -7,7 +7,7 @@ export class Header extends Component {
 
   render() {
     return (
-      <h2>Заголовок</h2>
+      <h2>{this.props.chatName}</h2>
     )
   }
 }

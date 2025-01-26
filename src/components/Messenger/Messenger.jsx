@@ -125,7 +125,7 @@ export class Messenger extends Component {
       <section className='messenger'>
         {/* {this.state.isVisible && <Counter />} */}
         {/* <button onClick={this.handleToggle}>Toggle</button> */}
-        <Header />
+        {this.state.currentChat? <Header chatName={this.state.currentChat}/>:<Header chatName={'Чаты'}/>}
         <section className='layout'>
           <ChatList getChatName={this.handlerChatName} />
           <div className="inputOutput">
