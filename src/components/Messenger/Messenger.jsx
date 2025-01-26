@@ -110,9 +110,10 @@ export class Messenger extends Component {
       let { author } = this.state.chats[this.state.currentChat].messages[length - 1];
       if (author !== 'автоответчик') {
         setTimeout(() =>
-          this.setState({
-            chats: Object.assign(this.state.chats, this.updateChat({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` }))
-          }),
+          // this.setState({
+          //   chats: Object.assign(this.state.chats, this.updateChat({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` }))
+          // }),
+          this.newMessage({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` }),
           500);
       }
     }
