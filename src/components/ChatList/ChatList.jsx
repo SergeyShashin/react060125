@@ -13,6 +13,10 @@ export class ChatList extends Component {
     }
   }
 
+  /**
+   * Сохраняет в state имя чата по которому был клик
+   * @param {HTMLevent} e событие при клике
+   */
   handlerClickChat = e => {
     if (e.target.tagName === 'LI') {
       let textContent = e.target.textContent;

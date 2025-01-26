@@ -14,7 +14,6 @@ export class Messenger extends Component {
     super(props);
     this.state = {
       // isVisible: false
-      // messages: [],
       currentChat: null,
       chats: {
         'Chat1': {
@@ -65,13 +64,35 @@ export class Messenger extends Component {
   //   this.setState({ isVisible: !this.state.isVisible });
   // }
 
+  /**
+   * Добавляет новое сообщение в state
+   * @param {Object} message 
+   */
   newMessage = message => {
     this.setState({
-      // messages: this.state.messages.concat(message);
-      chats: this.state.chats[this.state.currentChat].messages.concat(message)
+      chats: Object.assign(this.state.chats, this.updateChat(message))
     });
   };
 
+  /**
+   * Возвращает объект с добавленным message
+   * @param {Object} message 
+   * @returns 
+   */
+  updateChat(message) {
+    return {
+      [this.state.currentChat]: {
+        id: this.state.currentChat.id,
+        name: this.state.currentChat,
+        messages: this.state.chats[this.state.currentChat].messages.concat(message)
+      }
+    };
+  }
+
+  /**
+   * Записывает state выбранный чат
+   * @param {String} chatName 
+   */
   handlerChatName = chatName => {
     this.setState({
       currentChat: chatName
@@ -79,23 +100,25 @@ export class Messenger extends Component {
 
   }
 
+  /**
+   * Набор действий при обновлении компонента
+   */
   componentDidUpdate() {
-
-    // if (this.state.chats[this.state.currentChat].messages.length>1) {
-    //   let { author } = this.state.chats[this.state.currentChat].messages[this.state.messages.length - 1];
-    //   if (author !== 'автоответчик') {
-    //     setTimeout(() =>
-    //       this.setState({
-    //         chats: this.state.chats[this.state.currentChat].messages.concat({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` })
-    //       }),
-    //       500);
-    //   }
-    // }
+    if (this.state.chats[this.state.currentChat].messages.length > 1) {
+      let length = this.state.chats[this.state.currentChat].messages.length;
+      let { author } = this.state.chats[this.state.currentChat].messages[length - 1];
+      if (author !== 'автоответчик') {
+        setTimeout(() =>
+          this.setState({
+            chats: Object.assign(this.state.chats, this.updateChat({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` }))
+          }),
+          500);
+      }
+    }
 
   }
 
   render() {
-
     return (
       <section className='messenger'>
         {/* {this.state.isVisible && <Counter />} */}
