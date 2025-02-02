@@ -29,7 +29,12 @@ export class ChatList extends Component {
     return (
 
       <List className='chatList' onClick={this.handlerClickChat}>
-        <NavLink to='/chats/1'>
+        {Object.values(this.props.chats).map((chat, idx) =>
+          <NavLink key={idx} to={`/chats/${chat.id}`}>
+            <ListItem>{chat.name}</ListItem>
+          </NavLink>)
+        }
+        {/* <NavLink to='/chats/1'>
           <ListItem>Chat1</ListItem>
         </NavLink>
         <NavLink to='/chats/2'>
@@ -52,7 +57,7 @@ export class ChatList extends Component {
         </NavLink>
         <NavLink to='/chats/8'>
           <ListItem>Chat8</ListItem>
-        </NavLink>   
+        </NavLink> */}
 
       </List>
     )
