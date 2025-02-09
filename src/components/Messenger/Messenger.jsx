@@ -15,48 +15,48 @@ export class Messenger extends Component {
     this.state = {
       // isVisible: false
       currentChat: null,
-      // chats: {
-      //   'Chat1': {
-      //     id: 1,
-      //     name: "Chat1",
-      //     messages: [{ author: 'друг', text: `Привет!) Это чат 1. ` }]
-      //   },
-      //   'Chat2': {
-      //     id: 2,
-      //     name: "Chat2",
-      //     messages: [{ author: 'друг', text: `Привет!) Это чат 2. ` }]
-      //   },
-      //   'Chat3': {
-      //     id: 3,
-      //     name: "Chat3",
-      //     messages: [{ author: 'друг', text: `Привет!) Это чат 3. ` }]
-      //   },
-      //   'Chat4': {
-      //     id: 4,
-      //     name: "Chat4",
-      //     messages: [{ author: 'друг', text: `Привет!) Это чат 4. ` }]
-      //   },
-      //   'Chat5': {
-      //     id: 5,
-      //     name: "Chat5",
-      //     messages: [{ author: 'друг', text: `Привет!) Это чат 5. ` }]
-      //   },
-      //   'Chat6': {
-      //     id: 6,
-      //     name: "Chat6",
-      //     messages: [{ author: 'друг', text: `Привет!) Это чат 6. ` }]
-      //   },
-      //   'Chat7': {
-      //     id: 7,
-      //     name: "Chat7",
-      //     messages: [{ author: 'друг', text: `Привет!) Это чат 7. ` }]
-      //   },
-      //   'Chat8': {
-      //     id: 8,
-      //     name: "Chat8",
-      //     messages: [{ author: 'друг', text: `Привет!) Это чат 8. ` }]
-      //   },
-      // }
+      chats: {
+        'Chat1': {
+          id: 1,
+          name: "Chat1",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 1. ` }]
+        },
+        'Chat2': {
+          id: 2,
+          name: "Chat2",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 2. ` }]
+        },
+        'Chat3': {
+          id: 3,
+          name: "Chat3",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 3. ` }]
+        },
+        'Chat4': {
+          id: 4,
+          name: "Chat4",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 4. ` }]
+        },
+        'Chat5': {
+          id: 5,
+          name: "Chat5",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 5. ` }]
+        },
+        'Chat6': {
+          id: 6,
+          name: "Chat6",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 6. ` }]
+        },
+        'Chat7': {
+          id: 7,
+          name: "Chat7",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 7. ` }]
+        },
+        'Chat8': {
+          id: 8,
+          name: "Chat8",
+          messages: [{ author: 'друг', text: `Привет!) Это чат 8. ` }]
+        },
+      }
     }
   }
 
@@ -69,12 +69,12 @@ export class Messenger extends Component {
    * Добавляет новое сообщение в state
    * @param {Object} message 
    */
-  // newMessage = message => {
-    // this.setState({
-    //   chats: Object.assign(this.state.chats, this.updateChat(message))
-    // });
-    // this.props.chats = Object.assign(this.props.chats, this.updateChat(message))
-  // };
+  newMessage = message => {
+    this.setState({
+      chats: Object.assign(this.state.chats, this.updateChat(message))
+    });
+    // this.state.chats = Object.assign(this.state.chats, this.updateChat(message))
+  };
 
   /**
    * Возвращает объект с добавленным message
@@ -84,12 +84,12 @@ export class Messenger extends Component {
   updateChat(message) {
     return {
       [this.state.currentChat]: {
-        // id: this.state.chats[this.state.currentChat].id,
-        // name: this.state.chats[this.state.currentChat].name,
-        // messages: this.state.chats[this.state.currentChat].messages.concat(message)
-        id: this.props.chats[this.state.currentChat].id,
-        name: this.props.chats[this.state.currentChat].name,
-        messages: this.props.chats[this.state.currentChat].messages.concat(message)
+        id: this.state.chats[this.state.currentChat].id,
+        name: this.state.chats[this.state.currentChat].name,
+        messages: this.state.chats[this.state.currentChat].messages.concat(message)
+        // id: this.props.chats[this.state.currentChat].id,
+        // name: this.props.chats[this.state.currentChat].name,
+        // messages: this.props.chats[this.state.currentChat].messages.concat(message)
       }
     };
   }
@@ -109,22 +109,9 @@ export class Messenger extends Component {
    * Набор действий при обновлении компонента
    */
   componentDidUpdate() {
-    // if (this.state.chats[this.state.currentChat].messages.length > 1) {
-    //   let length = this.state.chats[this.state.currentChat].messages.length;
-    //   let { author } = this.state.chats[this.state.currentChat].messages[length - 1];
-    //   if (author !== 'автоответчик') {
-    //     setTimeout(() =>
-    //       // this.setState({
-    //       //   chats: Object.assign(this.state.chats, this.updateChat({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` }))
-    //       // }),
-    //       this.newMessage({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` }),
-    //       500);
-    //   }
-    // }
-
-    if (this.props.chats[this.state.currentChat] && this.props.chats[this.state.currentChat].messages.length > 1) {
-      let length = this.props.chats.chats[this.state.currentChat].messages.length;
-      let { author } = this.props.chats.chats[this.state.currentChat].messages[length - 1];
+    if (this.state.chats[this.state.currentChat].messages.length > 1) {
+      let length = this.state.chats[this.state.currentChat].messages.length;
+      let { author } = this.state.chats[this.state.currentChat].messages[length - 1];
       if (author !== 'автоответчик') {
         setTimeout(() =>
           // this.setState({
@@ -135,6 +122,19 @@ export class Messenger extends Component {
       }
     }
 
+    // if (this.props.chats[this.state.currentChat] && this.props.chats[this.state.currentChat].messages.length > 1) {
+    //   let length = this.props.chats.chats[this.state.currentChat].messages.length;
+    //   let { author } = this.props.chats.chats[this.state.currentChat].messages[length - 1];
+    //   if (author !== 'автоответчик') {
+    //     setTimeout(() =>
+    //       // this.setState({
+    //       //   chats: Object.assign(this.state.chats, this.updateChat({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` }))
+    //       // }),
+    //       this.newMessage({ author: 'автоответчик', text: `${author}, Ваше cообщение получено)` }),
+    //       500);
+    //   }
+    // }
+
   }
 
   render() {
@@ -144,12 +144,12 @@ export class Messenger extends Component {
         {/* <button onClick={this.handleToggle}>Toggle</button> */}
         {this.state.currentChat ? <Header chatName={this.state.currentChat} /> : <Header chatName={'Чаты'} />}
         <section className='layout'>
-          <ChatList chats={this.props.chats} getChatName={this.handlerChatName} />
+          <ChatList chats={this.state.chats} getChatName={this.handlerChatName} />
           <div className="inputOutput">
-            {/* {this.state.currentChat && this.state.chats[this.state.currentChat].messages ? <MessagesList messages={this.state.chats[this.state.currentChat].messages} /> : 'Можете выбрать чат для общения.'} */}
-            {this.state.currentChat && this.props.chats[this.state.currentChat].messages ? <MessagesList messages={this.props.chats[this.state.currentChat].messages} /> : 'Можете выбрать чат для общения.'}
-            {/* {this.state.currentChat && <MessageForm functionNewMessage={this.newMessage} />} */}
-            {this.state.currentChat && <MessageForm functionNewMessage={this.props.sendMessage} />}
+            {this.state.currentChat && this.state.chats[this.state.currentChat].messages ? <MessagesList messages={this.state.chats[this.state.currentChat].messages} /> : 'Можете выбрать чат для общения.'}
+            {/* {this.state.currentChat && this.props.chats[this.state.currentChat].messages ? <MessagesList messages={this.props.chats[this.state.currentChat].messages} /> : 'Можете выбрать чат для общения.'} */}
+            {this.state.currentChat && <MessageForm functionNewMessage={this.newMessage} />}
+            {/* {this.state.currentChat && <MessageForm functionNewMessage={this.props.sendMessage} />} */}
           </div>
         </section>
       </section>

@@ -8,8 +8,8 @@
 
 import React from "react";
 import { createRoot } from 'react-dom/client';
-// import { Messenger } from "./components/Messenger";
-import { MessengerRedux } from "./containers/MessengerContainer";
+import { Messenger } from "./components/Messenger";
+// import { MessengerRedux } from "./containers/MessengerContainer";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store';
@@ -35,8 +35,8 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<MessengerRedux />} />
-        <Route exact path="chats/:id" element={<MessengerRedux />} />
+        <Route exact path="/" element={<Messenger />} />
+        <Route exact path="chats/:id" element={<Messenger />} />
         {/* <Messenger /> */}
       </Routes>
     </BrowserRouter>
